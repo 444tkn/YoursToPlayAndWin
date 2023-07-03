@@ -1,3 +1,5 @@
+Javascript of the chessgame by talented mshvarts!
+
 # Chess
 A game of two player chess written in JavaScript, HTML, and CSS. 
  
