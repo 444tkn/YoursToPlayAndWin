@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	
+<head>
+	<title>Yours to Play and Win</title>
+	<link rel="shortcut icon" href="./img/favicon-32x32.png" type="image/png">
+	<link rel="icon" href="./img/favicon-32x32.png" type="image/png">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style_imac.css">
+	<script src="js/jquery-3.5.1.min.js"></script>
+	
+</head>
+
+<body onload="setup();">
+
+	<!-- <div class="title" id="title">The Sicilian</div> -->
+
+	<!-- <div class="hider"></div> -->
+		<div class="sliderpage" id="pagetechnical">
+			<div class="technicallayout">
+				<div class="technicaltitle">Crowlista Mono Glyphset
+					<br> <span class="fontbutton touched" id="lightbutton">Regular</span>
+					<span class="fontbutton" id="circledbutton">Circled</span>
+					<span class="fontbutton" id="checkerbutton">Checker</span>
+					<span class="fontbutton" id="inlinebutton">Inline</span>
+					<span class="fontbutton" id="italicbutton">Italic</span>
+				</div>
+
+				<div class="glyphset showglyphs" id="lightglyphset">AÁĂÂÄÀĀĄÅÃÆBCĆČÇĈĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĠHĦIÍÎÏİÌĪĮJJK<br>LŁMNŃŇÑOÓÔÖÒŐŌØÕŒPÞQRŔŘSŚŠŞTŤŢUÚÛÜÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲ<br>ZŹŽŻaáăǎâäàāąåãæ<span style="font-feature-settings: 'ss08' 1;">àáâãäåāăąǎ</span>bcćčçċdđeéěêëėèēęəfgğĝġ<br>hħiıíîïìīįjȷjklłmnńňñoóôöòőōøõœpþqrŕřsśšştţuúûüùűūųů<br>vwẃŵẅẁxyýŷÿỳzźžż<br>¹²³⁴0123456789<span style="font-feature-settings: 'ss05' 1;">257</span>₁₂₃₄¼½½¾.,:;…!¡?¿·•*#/\-­–—_(){}[]‚„“”‘’«»‹›"ƒ@&¶§©®™°|¦†‡¢¤$€£¥◊Ω+−×÷=≠<br>><≥≤±≈~¬^∞∫∆∏∑√∂µ%‰π↑↗→↘↓↙←↖↔↕ <br><span style="font-feature-settings: 'ss01' 1;">0123456789</span> <span style="font-feature-settings: 'ss02' 1;">0123456789</span><br> <span style="font-feature-settings: 'ss03' 1;">0123456789</span> <span style="font-feature-settings: 'ss04' 1;">0123456789</span><span style="font-feature-settings: 'ss06' 1;"> ←↑→↓↔↕↖↗↘↙</span></div>
+				<div class="glyphset" id="circledglyphset" style="font-feature-settings: 'ss09' 1;">AÁĂÂÄÀĀĄÅÃÆBCĆČÇĈĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĠHĦIÍÎÏİÌĪĮJJK<br>LŁMNŃŇÑOÓÔÖÒŐŌØÕŒPÞQRŔŘSŚŠŞTŤŢUÚÛÜÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲ<br>ZŹŽŻaáăǎâäàāąåãæ<span style="font-feature-settings: 'ss08' 1, 'ss09' 1;">àáâãäåāăąǎ</span>bcćčçċdđeéěêëėèēęəfgğĝġ<br>hħiıíîïìīįjȷjklłmnńňñoóôöòőōøõœpþqrŕřsśšştţuúûüùűūųů<br>vwẃŵẅẁxyýŷÿỳzźžż<br>¹²³⁴0123456789<span style="font-feature-settings: 'ss05' 1, 'ss09' 1;">257</span>₁₂₃₄¼½½¾.,:;…!¡?¿·•*#/\-–—_(){}[]‚„“”‘’«»‹›"ƒ@&¶§©®™°|¦†‡¢¤$€£¥◊Ω+−×÷=≠<br>><≥≤±≈~¬^∞∫∆∏∑√∂µ%‰π↑↗→↘↓↙←↖↔↕<br> <span style="font-feature-settings: 'ss01' 1;">0123456789</span> <span style="font-feature-settings: 'ss02' 1;">0123456789</span><br> <span style="font-feature-settings: 'ss03' 1;">0123456789</span> <span style="font-feature-settings: 'ss04' 1;">0123456789</span><span style="font-feature-settings: 'ss06' 1;"> ←↑→↓↔↕↖↗↘↙</span></div>
+				<div class="glyphset" id="inlineglyphset">AÁĂÂÄÀĀĄÅÃÆBCĆČÇĈĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĠHĦIÍÎÏİÌĪĮJJK<br>LŁMNŃŇÑOÓÔÖÒŐŌØÕŒPÞQRŔŘSŚŠŞTŤŢUÚÛÜÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲ<br>ZŹŽŻaáăǎâäàāąåãæ<span style="font-feature-settings: 'ss08' 1;">àáâãäåāăąǎ</span>bcćčçċdđeéěêëėèēęəfgğĝġ<br>hħiıíîïìīįjȷjklłmnńňñoóôöòőōøõœpþqrŕřsśšştţuúûüùűūųů<br>vwẃŵẅẁxyýŷÿỳzźžż<br>¹²³⁴0123456789<span style="font-feature-settings: 'ss05' 1;">257</span>₁₂₃₄¼½½¾.,:;…!¡?¿·•*#/\-­–—_(){}[]‚„“”‘’«»‹›"ƒ@&¶§©®™°|¦†‡¢¤$€£¥◊Ω+−×÷=≠<br>><≥≤±≈~¬^∞∫∆∏∑√∂µ%‰π↑↗→↘↓↙←↖↔↕ <br><span style="font-feature-settings: 'ss01' 1;">0123456789</span> <span style="font-feature-settings: 'ss02' 1;">0123456789</span> <br><span style="font-feature-settings: 'ss03' 1;">0123456789</span> <span style="font-feature-settings: 'ss04' 1;">0123456789</span><span style="font-feature-settings: 'ss06' 1;"> ←↑→↓↔↕↖↗↘↙</span></div>
+				<div class="glyphset" id="checkerglyphset">AÁĂÂÄÀĀĄÅÃÆBCĆČÇĈĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĠHĦIÍÎÏİÌĪĮJJK<br>LŁMNŃŇÑOÓÔÖÒŐŌØÕŒPÞQRŔŘSŚŠŞTŤŢUÚÛÜÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲ<br>ZŹŽŻaáăǎâäàāąåãæ<span style="font-feature-settings: 'ss08' 1;">àáâãäåāăąǎ</span>bcćčçċdđeéěêëėèēęəfgğĝġ<br>hħiıíîïìīįjȷjklłmnńňñoóôöòőōøõœpþqrŕřsśšştţuúûüùűūųů<br>vwẃŵẅẁxyýŷÿỳzźžż<br>¹²³⁴0123456789<span style="font-feature-settings: 'ss05' 1;">257</span>₁₂₃₄¼½½¾.,:;…!¡?¿·•*#/\-­–—_(){}[]‚„“”‘’«»‹›"ƒ@&¶§©®™°|¦†‡¢¤$€£¥◊Ω+−×÷=≠<br>><≥≤±≈~¬^∞∫∆∏∑√∂µ%‰π↑↗→↘↓↙←↖↔↕ <br><span style="font-feature-settings: 'ss01' 1;">0123456789</span> <span style="font-feature-settings: 'ss02' 1;">0123456789</span><br> <span style="font-feature-settings: 'ss03' 1;">0123456789</span> <span style="font-feature-settings: 'ss04' 1;">0123456789</span><span style="font-feature-settings: 'ss06' 1;"> ←↑→↓↔↕↖↗↘↙</span></div>
+				<div class="glyphset" id="italicglyphset">AÁĂÂÄÀĀĄÅÃÆBCĆČÇĈĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĠHĦIÍÎÏİÌĪĮJJK<br>LŁMNŃŇÑOÓÔÖÒŐŌØÕŒPÞQRŔŘSŚŠŞTŤŢUÚÛÜÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲ<br>ZŹŽŻaáăǎâäàāąåãæbcćčçċdđeéěêëėèēęəfgğĝġhħiıíîïìīį<br>jȷjklłmnńňñoóôöòőōøõœpþqrŕřsśšştţuúûüùűūųůvwẃŵẅẁx<br>yýŷÿỳzźžż<br>¹²³⁴0123456789<span style="font-feature-settings: 'ss05' 1;">257</span>₁₂₃₄¼½½¾.,:;…!¡?¿·•*#/\-­–—_(){}[]‚„“”‘’«»‹›"ƒ@&¶§©®™°|¦†‡¢¤$€£¥◊Ω+−×÷=≠<br>><≥≤±≈~¬^∞∫∆∏∑√∂µ%‰π↑↗→↘↓↙←↖↔↕<br> <span style="font-feature-settings: 'ss01' 1;">0123456789</span> <span style="font-feature-settings: 'ss02' 1;">0123456789</span> <br><span style="font-feature-settings: 'ss03' 1;">0123456789</span> <span style="font-feature-settings: 'ss04' 1;">0123456789</span><span style="font-feature-settings: 'ss06' 1;"> ←↑→↓↔↕↖↗↘↙</span></div>
+			</div>
+			<div class="button" id="specimen">Technical</div>
+		</div>
+
+		<div class="sliderpage" id="pagegames">
+			<div class="button" id="games">Algebraic Notation</div>
+			<div class="gameslayout">
+				<div class="technicaltitle">What is algebraic notation?</div>
+				<span class="storytext">It is one of the codes in which a chess game can be translated. Since the 1980s, it has become the most common way to record and describe the moves on the chessmat. Before then, descriptive notation was commonly used.
+					<br><br> The files (vertical columns) are labeled from a to h, whereas the ranks (horizontal rows) are numbered from 1 to 8. Each piece has its own uppercase character code, except for the pawn. The piece's name precedes the destination square. If a capture happens, it shall be indicated with an “x” inserted inbetween the piece and the destination square.
+					<br><br> Special moves have their own specific notations. An en passant adds the characters “e.p.” at the end of the move. A promotion appends an “=” and the identifier of the new piece after the destination square and so on. You will find below the algebraic notation's codes and grammar.
+					<span id="notationlist"><br><br><br><br>Movement of a pawn<br><span id="longarrows">↓</span><br>Destination square<br><span id="longarrows">↓</span><br><span id="fidenotation">e4</span>
+					<br><br><br><br>Movement of a major piece<br><span id="longarrows">↓</span><br>Uppercase code + Destination square<br><span id="longarrows">↓</span><br><span id="fidenotation">Nf3</span>
+					<br><br><br><br>Capture by a pawn<br><span id="longarrows">↓</span><br>Original position's file + “x” + Capture square<br><span id="longarrows">↓</span><br><span id="fidenotation">exd5</span>
+					<br><br><br><br>Capture by a major piece<br><span id="longarrows">↓</span><br>Uppercase code + “x” + Capture square<br><span id="longarrows">↓</span><br><span id="fidenotation">Nxd5</span>
+					<br><br><br><br>En passant<br><span id="longarrows">↓</span><br>Original position's file + “x” + Capture square + “e.p.”<br><span id="longarrows">↓</span><br><span id="fidenotation">exd6en passant</span>
+					<br><br><br><br>Promotion<br><span id="longarrows">↓</span><br>Destination square + “=” + New piece's code<br><span id="longarrows">↓</span><br><span id="fidenotation">e8=Q</span>
+					<br><br><br><br>Kingside Castle<br><span id="longarrows">↓</span><br><span id="fidenotation">O-O</span>
+					<br><br><br><br>Queenside Castle<br><span id="longarrows">↓</span><br><span id="fidenotation">O-O-O</span>
+					<br><br><br><br>Check<br><span id="longarrows">↓</span><br>Movement as stated above + “+”<br><span id="longarrows">↓</span><br><span id="fidenotation">Qd7+</span>
+					<br><br><br><br>Checkmate<br><span id="longarrows">↓</span><br>Movement as stated above + “++”<br><span id="longarrows">↓</span><br><span id="fidenotation">Nf7++</span>
+					<br><br><br><br>White wins<br><span id="longarrows">↓</span><br><span id="biggernotation">1-0</span>
+					<br><br><br><br>Black wins<br><span id="longarrows">↓</span><br><span id="biggernotation">0-1</span>
+					<br><br><br><br>Draw<br><span id="longarrows">↓</span><br><span id="biggernotation">½-½</span>
+					</span>
+				</span>
+			</div>
+		</div>
+
+		<div class="sliderpage" id="pagelanguages">
+			<div class="button" id="languages">Languages</div>
+			<div class="languageslayout">
+				<div class="changeabb show" id="afrikaansabb">
+					<div class="abbreviations">
+						K<br><p>Konig</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dame</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Toring</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Loper</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Ruiter</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pion</p>
+					</div>
+				</div>
+		
+				<div class="changeabb" id="albanianabb">
+					<div class="abbreviations">
+						R<br><p>Mbreti</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torra</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Fili</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Kali</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Ushtari</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="azerbaidjaniabb">
+					<div class="abbreviations">
+						Ş<br><p>Şah</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Vəzir</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Top</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Fil</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>At</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Piyada</p>
+					</div>
+				</div>
+		
+				<div class="changeabb" id="basqueabb">
+					<div class="abbreviations">
+						E<br><p>Erregea</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Gaztuela</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alfila</p>
+					</div>
+					<div class="abbreviations">
+						Z<br><p>Zalduna</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peoia</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="catalanabb">
+					<div class="abbreviations">
+						R<br><p>Rei</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torre</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alfil</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cavall</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peó</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="chineseabb">
+					<div class="abbreviations">
+						K<br><p>Wáng</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Hòu</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Jū</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Xiàng</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Mǎ</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Bīng</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="czechabb">
+					<div class="abbreviations">
+						K<br><p>Král</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dáma</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Věž</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Střelec</p>
+					</div>
+					<div class="abbreviations">
+						J<br><p>Jezdec</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pěšec</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="danishabb">
+					<div class="abbreviations">
+						K<br><p>Konge</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dronning</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tårn</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Løber</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Springer</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bonde</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="dutchabb">
+					<div class="abbreviations">
+						K<br><p>Koning</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dame</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Toren</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Loper</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Paard</p>
+					</div>
+					<div class="abbreviations">
+						pi<br><p>pion</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="englishabb">
+					<div class="abbreviations">
+						K<br><p>King</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Queen</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Rook</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bishop</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Knight</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pawn</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="esperantoabb">
+					<div class="abbreviations">
+						R<br><p>reĝo</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Damo</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Turo</p>
+					</div>
+					<div class="abbreviations">
+						K<br><p>Kuriero</p>
+					</div>
+					<div class="abbreviations">
+						Ĉ<br><p>Ĉevalo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peono</p>
+					</div>
+				</div>
+
+
+				<div class="changeabb" id="estonianabb">
+					<div class="abbreviations">
+						K<br><p>Kuningas</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Lipp</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Vanker</p>
+					</div>
+					<div class="abbreviations">
+						O<br><p>Oda</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Ratsu</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Ettur</p>
+					</div>
+				</div>
+
+
+				<div class="changeabb" id="finnishabb">
+					<div class="abbreviations">
+						K<br><p>Kuningas</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Daami</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torni</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Lähetti</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Ratsu</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Sotilas</p>
+					</div>
+				</div>
+
+
+				<div class="changeabb" id="frenchabb">
+					<div class="abbreviations">
+						R<br><p>Roi</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dame</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tour</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Fou</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cavalier</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pion</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="galicianabb">
+					<div class="abbreviations">
+						R<br><p>Rei</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torre</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bispo</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cabalo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peón</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="germanabb">
+					<div class="abbreviations">
+						K<br><p>König</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dame</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Turm</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Läufer</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Springer</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bauer</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="hindiabb">
+					<div class="abbreviations">
+						R<br><p>Rājā</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Vazīr</p>
+					</div>
+					<div class="abbreviations">
+						H<br><p>Hāthī</p>
+					</div>
+					<div class="abbreviations">
+						O<br><p>Ūṁṭ</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Ghoṛā</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pyādā</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="hausaabb">
+					<div class="abbreviations">
+						S<br><p>Sarki</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Sarauniya</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Sansanin</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Giwa</p>
+					</div>
+					<div class="abbreviations">
+						J<br><p>Jarumi</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Soja</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="hungarianabb">
+					<div class="abbreviations">
+						K<br><p>Király</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Vezér</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bástya</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Futó</p>
+					</div>
+					<div class="abbreviations">
+						H<br><p>Huszár</p>
+					</div>
+					<div class="abbreviations">
+						Gy<br><p>Gyalog</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="icelandicabb">
+					<div class="abbreviations">
+						K<br><p>Kóngur</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Drottning</p>
+					</div>
+					<div class="abbreviations">
+						H<br><p>Hrókur</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Biskup</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Riddari</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peð</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="idoabb">
+					<div class="abbreviations">
+						R<br><p>Rejo</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Damo</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Turmo</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Episkopo</p>
+					</div>
+					<div class="abbreviations">
+						K<br><p>Kavalo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Piono</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="indonesianabb">
+					<div class="abbreviations">
+						R<br><p>Raja</p>
+					</div>
+					<div class="abbreviations">
+						M<br><p>Menteri</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Benteng</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Gajah</p>
+					</div>
+					<div class="abbreviations">
+						K<br><p>Kuda</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pion</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="interslavicabb">
+					<div class="abbreviations">
+						K<br><p>Kralj</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Carica</p>
+					</div>
+					<div class="abbreviations">
+						Z<br><p>Zamok</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Lovec</p>
+					</div>
+					<div class="abbreviations">
+						J<br><p>Jezdec</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pěšak</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="irishabb">
+					<div class="abbreviations">
+						R<br><p>Rí</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Banríon</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Caiseal</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Easpag</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Ridire</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Fichillín</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="italianabb">
+					<div class="abbreviations">
+						R<br><p>Re</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Donna</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torre</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alfiere</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cavallo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pedone</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="javaneseabb">
+					<div class="abbreviations">
+						R<br><p>Raja</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Ratu</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bèntèng</p>
+					</div>
+					<div class="abbreviations">
+						M<br><p>Mentri</p>
+					</div>
+					<div class="abbreviations">
+						K<br><p>Jaran</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pion</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="koreanabb">
+					<div class="abbreviations">
+						K<br><p>King</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Kwin</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Rug</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bis Yub</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Na I Teu</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pon</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="latinabb">
+					<div class="abbreviations">
+						R<br><p>Rex</p>
+					</div>
+					<div class="abbreviations">
+						M<br><p>Regina</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Turris</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alphinus</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Eques</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pedes</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="latvianabb">
+					<div class="abbreviations">
+						K<br><p>Karalis</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dāma</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tornis</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Laidnis</p>
+					</div>
+					<div class="abbreviations">
+						Z<br><p>Zirgs</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bandinieks</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="lithuanianabb">
+					<div class="abbreviations">
+						K<br><p>Karalius</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Valdovė</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bokštas</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Rikis</p>
+					</div>
+					<div class="abbreviations">
+						Ž<br><p>Žirgas</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pėstininkas</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="lojbanabb">
+					<div class="abbreviations">
+						Na<br><p>Noltrunau</p>
+					</div>
+					<div class="abbreviations">
+						Ni<br><p>Noltruni'u</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Slanydi'u</p>
+					</div>
+					<div class="abbreviations">
+						X<br><p>Xanto</p>
+					</div>
+					<div class="abbreviations">
+						Xi<br><p>Xirma</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Sonci</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="luxembourgishabb">
+					<div class="abbreviations">
+						K<br><p>Kinek</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Damm</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tuerm</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Leefer</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Päerd</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bauer</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="malayalamabb">
+					<div class="abbreviations">
+						K<br><p>Raajavu</p>
+					</div>
+					<div class="abbreviations">
+						Q<br><p>Manthri</p>
+					</div>
+					<div class="abbreviations">
+						R<br><p>Therú</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Aana</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Kuthira</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Padayaali</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="bokmalabb">
+					<div class="abbreviations">
+						K<br><p>Konge</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dronning</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tårn</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Løper</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Springer</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bonde</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="nynorskabb">
+					<div class="abbreviations">
+						K<br><p>Konge</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dronning</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tårn</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Løpar</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Springar</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bonde</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="polishabb">
+					<div class="abbreviations">
+						K<br><p>Król</p>
+					</div>
+					<div class="abbreviations">
+						H<br><p>Hetman</p>
+					</div>
+					<div class="abbreviations">
+						W<br><p>Wieża</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Goniec</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Skoczek</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pionek</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="portugueseabb">
+					<div class="abbreviations">
+						R<br><p>Rei</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torre</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bispo</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cavalo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peão</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="romanianabb">
+					<div class="abbreviations">
+						R<br><p>Rege</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Damă</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Turn</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Nebun</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Cal</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pion</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="scottishabb">
+					<div class="abbreviations">
+						R<br><p>Righ</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bànrigh</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Tùr</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Easbaig</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Ridir</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pàn</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="serbocroatianabb">
+					<div class="abbreviations">
+						K<br><p>Kralj</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Top</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Lovac</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Skakač</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pješak</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="northsotoabb">
+					<div class="abbreviations">
+						K<br><p>Kgoši</p>
+					</div>
+					<div class="abbreviations">
+						Kg<br><p>Kgošigadi</p>
+					</div>
+					<div class="abbreviations">
+						N<br><p>Ntlosebô</p>
+					</div>
+					<div class="abbreviations">
+						Mp<br><p>Mopišopo</p>
+					</div>
+					<div class="abbreviations">
+						M<br><p>Mogale</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Seitšhireletšo</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="sicilianabb">
+					<div class="abbreviations">
+						R<br><p>Re</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Riggina</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Turru</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alferu</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Scecchu</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pidinu</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="slovakabb">
+					<div class="abbreviations">
+						K<br><p>Král'</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dáma</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Veža</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Strelec</p>
+					</div>
+					<div class="abbreviations">
+						J<br><p>Jazdec</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Pešiak</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="sloveneabb">
+					<div class="abbreviations">
+						K<br><p>Kralj</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Trdnjava</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Lovec</p>
+					</div>
+					<div class="abbreviations">
+						S<br><p>Skakač</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Kmet</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="spanishabb">
+					<div class="abbreviations">
+						R<br><p>Rey</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dama</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torre</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>Alfil</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Caballo</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Peón</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="swedishabb">
+					<div class="abbreviations">
+						K<br><p>Kung</p>
+					</div>
+					<div class="abbreviations">
+						D<br><p>Dam</p>
+					</div>
+					<div class="abbreviations">
+						T<br><p>Torn</p>
+					</div>
+					<div class="abbreviations">
+						L<br><p>Löpare</p>
+					</div>
+					<div class="abbreviations">
+						H<br><p>Springare</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Bonde</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="turkishabb">
+					<div class="abbreviations">
+						Ş<br><p>Şah</p>
+					</div>
+					<div class="abbreviations">
+						V<br><p>Vezir</p>
+					</div>
+					<div class="abbreviations">
+						K<br><p>Kale</p>
+					</div>
+					<div class="abbreviations">
+						F<br><p>Fil</p>
+					</div>
+					<div class="abbreviations">
+						A<br><p>At</p>
+					</div>
+					<div class="abbreviations">
+						P<br><p>Er</p>
+					</div>
+				</div>
+
+				<div class="changeabb" id="welshabb">
+					<div class="abbreviations">
+						T<br><p>Teyrn</p>
+					</div>
+					<div class="abbreviations">
+						B<br><p>Brenhines</p>
+					</div>
+					<div class="abbreviations">
+						C<br><p>Castell</p>
+					</div>
+					<div class="abbreviations">
+						E<br><p>Esgob</p>
+					</div>
+					<div class="abbreviations">
+						M<br><p>Marchog</p>
+					</div>
+					<div class="abbreviations">
+						G<br><p>Gwerinwr</p>
+					</div>
+				</div>
+				
+				<div class="abbbuttons">
+					<div class="abbbutton touched" id="afrikaansbutton">Afrikaans</div>
+					<div class="abbbutton" id="albanianbutton">Albanian</div>
+					<div class="abbbutton" id="azerbaidjanibutton">Azerbaijani</div>
+					<div class="abbbutton" id="basquebutton">Basque</div>
+					<div class="abbbutton" id="catalanbutton">Catalan</div>
+					<div class="abbbutton" id="chinesebutton">Chinese</div>
+					<div class="abbbutton" id="czechbutton">Czech</div>
+					<div class="abbbutton" id="danishbutton">Danish</div>
+					<div class="abbbutton" id="dutchbutton">Dutch</div>
+					<div class="abbbutton" id="englishbutton">English</div>
+					<div class="abbbutton" id="esperantobutton">Esperanto</div>
+					<div class="abbbutton" id="estonianbutton">Estonian</div>
+					<div class="abbbutton" id="finnishbutton">Finnish</div>
+					<div class="abbbutton" id="frenchbutton">French</div>
+					<div class="abbbutton" id="galicianbutton">Galician</div>
+					<div class="abbbutton" id="germanbutton">German</div>
+					<div class="abbbutton" id="hindibutton">Hindi</div>
+					<div class="abbbutton" id="hausabutton">Hausa</div>
+					<div class="abbbutton" id="hungarianbutton">Hungarian</div>
+					<div class="abbbutton" id="icelandicbutton">Icelandic</div>
+					<div class="abbbutton" id="idobutton">Ido</div>
+					<div class="abbbutton" id="indonesianbutton">Indonesian</div>
+					<div class="abbbutton" id="interslavicbutton">Interslavic</div>
+					<div class="abbbutton" id="irishbutton">Irish</div>
+					<div class="abbbutton" id="italianbutton">Italian</div>
+					<div class="abbbutton" id="javanesebutton">Javanese</div>
+					<div class="abbbutton" id="koreanbutton">Korean</div>
+					<div class="abbbutton" id="latinbutton">Latin</div>
+					<div class="abbbutton" id="latvianbutton">Latvian</div>
+					<div class="abbbutton" id="lithuanianbutton">Lithuanian</div>
+					<div class="abbbutton" id="lojbanbutton">Lojban</div>
+					<div class="abbbutton" id="luxembourgishbutton">Luxembourgish</div>
+					<div class="abbbutton" id="malayalambutton">Malayalam</div>
+					<div class="abbbutton" id="bokmalbutton">Bokmål</div>
+					<div class="abbbutton" id="nynorskbutton">Nynorsk</div>
+					<div class="abbbutton" id="polishbutton">Polish</div>
+					<div class="abbbutton" id="portuguesebutton">Portuguese</div>
+					<div class="abbbutton" id="romanianbutton">Romanian</div> 
+					<div class="abbbutton" id="scottishbutton">Scottish Gaelic</div>
+					<div class="abbbutton" id="serbocroatianbutton">Serbo-Croatian</div>
+					<div class="abbbutton" id="northsotobutton">Northern Sotho</div>
+					<div class="abbbutton" id="sicilianbutton">Sicilian</div>
+					<div class="abbbutton" id="slovakbutton">Slovak</div>
+					<div class="abbbutton" id="slovenebutton">Slovene</div>
+					<div class="abbbutton" id="spanishbutton">Spanish</div>
+					<div class="abbbutton" id="swedishbutton">Swedish</div>
+					<div class="abbbutton" id="turkishbutton">Turkish</div>
+					<div class="abbbutton" id="welshbutton">Welsh</div>
+				</div>
+			</div>
+			<div class="languageslayout">
+			
+			</div>
+		</div>
+
+		<div class="sliderpage" id="pagestory">
+			<div class="button" id="story">Story</div>
+			<div class="storylayout">
+				<div class="technicaltitle">What's the story?</div>
+				<span class="storytext">Named after a village on the Isle of Lewis, the Crowlista typeface is adapted to the game of chess with the Mono version and styles. With a hint in modern mechanism coming from the slab serif genre, the mono proportions adapt the glyphs to the modular elements of the game. The rounded edges give an organic quality which refers to human's inherent quality: thinking. <br><br>Duchamp said that “chess pieces are the block alphabet which shapes thoughts.” Well, The block alphabet does that itself as well. However, it is only once the symbols, whether they are pieces or glyphs, are activated that they become meaningful. This process happens once they give an ideographic representation of an abstract image, a poetic idea. It is now ours to use these symbols, in order to share and learn, to describe and picture, to write and to read.<br><br>It complements the flourishing 444 Squadra font catalogue, alongside Crowlista's proportionnal version, Arsens, Ella, Margaux and Snurfer. The studio is a two-people job, with Antonin Maudry and Thomas K. Neyroud.<br><br>Yours to Play and Win and the Crowlista Mono family are part of Thomas K. Neyroud's diploma project at ECAL, 2023.</span>
+			</div>
+		</div>
+
+		<div class="buttonwrapper">
+			<!-- <div class="button" id="games">Games -->
+			</div>
+			<!-- <div class="button" id="masters">The Masters</div> -->
+			<div class="button" id="rules">Rules</div>
+			<!-- <div class="button" id="playground">Playground</div> -->
+			<div class="button" id="story">Story</div>
+			<div class="button" id="languages">Languages</div>
+		</div>
+
+	<!-- <div class="page" id="gamepage">
+		<div class="closepage"></div>
+			<div class="gameslist">
+				<span class="subbutton" id="kasparovbutton">Kasparov vs. Topalov, 1999.</span>
+				<span class="subbutton" id="morphybutton">Morphy vs. Allies, 1858.</span>
+				<span class="subbutton" id="aronianbutton">Aronian vs. Anand, 2013.</span>
+				<span class="subbutton" id="karpovbutton">Karpov vs. Kasparov, 1985.</span>
+				<span class="subbutton" id="byrnebutton">Byrne vs. Fischer, 1956.</span>
+				<span class="subbutton" id="ivanchuckbutton">Ivanchuk vs. Yusupov, 1991.</span>
+				<span class="subbutton" id="shortbutton">Short vs. Timman, 1991.</span>
+				<span class="subbutton" id="jinshibutton">Bai Jinshi vs. Ding Liren, 2017.</span>
+				<span class="subbutton" id="rotlewibutton">Rotlewi vs. Rubinstein, 1907.</span>
+				<span class="subbutton" id="gellerbutton">Geller vs. Euwe, 1953.</span>
+			</div>
+			<div class="pagered" id="kasparov">
+				<div class="closepagered"></div>
+				<div class="switchset">Compact Notation</div>
+				<h1 id="gamenotation">1.e4 d6</h1>
+				<h2 id="gamenotation">2.d4 f6 3.c3 g6</h2>	
+			</div>
+			<div class="pagered" id="morphy">
+				<div class="closepagered"></div>
+				<h1>1.e4 d6</h1>
+				<h2>2.d4 f6 3.c3 g6</h2>			
+			</div>
+			<div class="pagered" id="aronian">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="karpov">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="byrne">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="ivanchuck">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="short">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="jinshi">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="rotlewi">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+			<div class="pagered" id="geller">
+				<div class="closepagered"></div>
+				<span class="h1">1.e4 d6</span>
+			</div>
+	</div>
+	<div class="page" id="masterspage">
+		<div class="closepage"></div>
+	</div>
+	<div class="page" id="rulespage">
+		<div class="closepage"></div>
+	</div>
+	<div class="page" id="gamepage">
+		<div class="closepage"></div>
+	</div>
+	<div class="page" id="storypage">
+		<div class="closepage"></div>
+	</div> -->
+
+	<!-- <div class="page" id="languagespage">
+		<div class="closepage"></div> -->
+
+		<!-- <div class="changeabb show" id="afrikaansabb">
+			<div class="abbreviations">
+				K<br><p>Konig</p>
+			</div>
+			<div class="abbreviations">
+				D<br><p>Dame</p>
+			</div>
+			<div class="abbreviations">
+				T<br><p>Toring</p>
+			</div>
+			<div class="abbreviations">
+				L<br><p>Loper</p>
+			</div>
+			<div class="abbreviations">
+				R<br><p>Ruiter</p>
+			</div>
+			<div class="abbreviations">
+				P<br><p>Pion</p>
+			</div>
+		</div>
+
+		<div class="changeabb" id="albanianabb">
+			<div class="abbreviations">
+				R<br><p>Mbreti</p>
+			</div>
+			<div class="abbreviations">
+				D<br><p>Dama</p>
+			</div>
+			<div class="abbreviations">
+				T<br><p>Torra</p>
+			</div>
+			<div class="abbreviations">
+				F<br><p>Fili</p>
+			</div>
+			<div class="abbreviations">
+				C<br><p>Kali</p>
+			</div>
+			<div class="abbreviations">
+				P<br><p>Ushtari</p>
+			</div>
+		</div>
+
+		<div class="changeabb" id="azerbaidjaniabb">
+			<div class="abbreviations">
+				Ş<br><p>Şah</p>
+			</div>
+			<div class="abbreviations">
+				V<br><p>Vəzir</p>
+			</div>
+			<div class="abbreviations">
+				T<br><p>Top</p>
+			</div>
+			<div class="abbreviations">
+				F<br><p>Fil</p>
+			</div>
+			<div class="abbreviations">
+				A<br><p>At</p>
+			</div>
+			<div class="abbreviations">
+				P<br><p>Piyada</p>
+			</div>
+		</div>
+		
+		<div class="abbbuttons">
+			<div class="abbbutton touched" id="afrikaansbutton">Afrikaans</div>
+			<div class="abbbutton" id="albanianbutton">Albanian</div>
+			<div class="abbbutton" id="azerbaidjanibutton">Azerbaijani</div>
+			<div class="abbbutton">Basque</div>
+			<div class="abbbutton">Catalan</div>
+			<div class="abbbutton">Chinese</div>
+			<div class="abbbutton">Czech</div>
+			<div class="abbbutton">Danish</div>
+			<div class="abbbutton">Dutch</div>
+			<div class="abbbutton">Esperanto</div>
+		</div> -->
+		
+		<!-- <div class="piecesnames" id="french"><pre>Roi			Dame			Tour			Fou			Cavalier		Pion</pre></div> -->
+	</div>
+
+
+		<div class="chessmat" id="chess">
+			<!-- <p id="turnInfo">Player's turn: <b>White</b></p> -->
+			<section id="board">
+				<div class="overlay" id="promotionMessage">
+				<div class="overlay-inner">
+					<span class="overlay-title">Promotion</span>
+					<p class="overlay-text" id="alertText"></p>
+					<ul id="promotionList" class="white">
+						<li><a href="#" class="promotion-button queen" onclick="promote('queen');"></a></li>
+						<li><a href="#" class="promotion-button castle" onclick="promote('castle');"></a></li>
+						<li><a href="#" class="promotion-button bishop" onclick="promote('bishop');"></a></li>
+						<li><a href="#" class="promotion-button knight" onclick="promote('knight');"></a></li>
+					</ul>
+				</div>
+				</div>
+				<div class="overlay" id="errorMessage">
+					<div class="overlay-inner">
+						<span class="overlay-title"></span>
+						<p class="overlay-text" id="errorText"></p>
+						<a href="#" class="overlay-button" onclick="closeError();">Close</a>
+					</div>
+				</div>
+				<div class="overlay" id="endMessage">
+					<div class="overlay-inner">
+						<span class="overlay-title">Game Over</span>
+						<p class="overlay-text" id="endText"></p>
+						<a href="#" class="overlay-button" onclick="newGame();">New Game</a>
+					</div>
+				</div>
+			</section>
+			<!-- <p id="turnInfo">Player's turn : <b>White</b></p> -->
+		</div>
+
+		<div class="typewriter" id="notation">
+			<!-- <span>1 Nxf6+ Qxc4++</span> -->
+		</div>
+
+		<p id="turnInfo">Player's turn: <b>White</b></p>
+
+		<div class="portraitalert">Please open this website on a computer, in landscape orientation.</div>
+
+	
+
+
+<script type="text/javascript" src="js/scripts.js"></script>
+
+
+</body>
+</html>
